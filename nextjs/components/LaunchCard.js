@@ -31,13 +31,16 @@ export default function LaunchCard({
 			}}
 		>
 			<CardContent>
-				<Box display="flex" justifyContent="center">
+				<Typography variant="h4">
 					{badgeSrc && (
-						<Avatar alt={`${name} patch`} src={badgeSrc} sx={{ mr: 1 }} />
+						<Avatar
+							alt={`${name} patch`}
+							src={badgeSrc}
+							sx={{ mr: 1, display: 'inline-block', verticalAlign: 'sub' }}
+						/>
 					)}
-
-					<Typography variant="h4">{name}</Typography>
-				</Box>
+					{name}
+				</Typography>
 
 				<Typography variant="h6">{new Date(date).toLocaleString()}</Typography>
 
