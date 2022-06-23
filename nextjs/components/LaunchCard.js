@@ -27,10 +27,11 @@ export default function LaunchCard({
 			{...props}
 			sx={{
 				backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.65),
+				textAlign: 'center',
 			}}
 		>
 			<CardContent>
-				<Box display="flex">
+				<Box display="flex" justifyContent="center">
 					{badgeSrc && (
 						<Avatar alt={`${name} patch`} src={badgeSrc} sx={{ mr: 1 }} />
 					)}
@@ -42,7 +43,14 @@ export default function LaunchCard({
 
 				{details && <Typography variant="h5">{details}</Typography>}
 
-				<Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
+				<Typography
+					variant="h6"
+					sx={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}
+				>
 					<Box
 						sx={(theme) => ({
 							display: 'inline-block',
@@ -62,7 +70,7 @@ export default function LaunchCard({
 			</CardContent>
 
 			{linkHref && linkLabel && (
-				<CardActions>
+				<CardActions sx={{ justifyContent: 'center' }}>
 					<Link passHref href={linkHref}>
 						<Button variant="outlined">{linkLabel}</Button>
 					</Link>
