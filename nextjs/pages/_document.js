@@ -1,14 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
-import { GA_TRACKING_ID } from '../lib/gtag';
+const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function Document() {
 	return (
 		<Html>
-			<Head />
-			<body>
-				<Main />
-				<NextScript />
+			<Head>
 				<script
 					async
 					src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -23,6 +20,10 @@ export default function Document() {
           `,
 					}}
 				/>
+			</Head>
+			<body>
+				<Main />
+				<NextScript />
 			</body>
 		</Html>
 	);
