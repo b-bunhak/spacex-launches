@@ -1,25 +1,40 @@
+import { Box } from '@mui/material';
+
 import LaunchCard from '../components/LaunchCard';
 
 export default function Home({ latest, next }) {
 	return (
-		<main>
-			<LaunchCard
-				name={next.name}
-				date={next.date_utc}
-				details={next.details}
-				linkLabel="All future launches"
-				linkHref={'/upcoming'}
-				sx={{ mb: 2 }}
-			/>
+		<Box height="100%" display="flex">
+			<Box
+				my="auto"
+				flex={1}
+				display="flex"
+				flexWrap="wrap"
+				sx={{ '& > *': { m: 2, flex: '1 1 320px' } }}
+			>
+				<LaunchCard
+					name={latest.name}
+					date={latest.date_utc}
+					details={latest.details}
+					success={latest.success}
+					upcoming={latest.upcoming}
+					badgeSrc={latest.links?.patch?.small}
+					linkLabel="All past launches"
+					linkHref={'/past'}
+				/>
 
-			<LaunchCard
-				name={latest.name}
-				date={latest.date_utc}
-				details={latest.details}
-				linkLabel="All past launches"
-				linkHref={'/past'}
-			/>
-		</main>
+				<LaunchCard
+					name={next.name}
+					date={next.date_utc}
+					details={next.details}
+					success={next.success}
+					upcoming={next.upcoming}
+					badgeSrc={next.links?.patch?.small}
+					linkLabel="All future launches"
+					linkHref={'/upcoming'}
+				/>
+			</Box>
+		</Box>
 	);
 }
 

@@ -28,16 +28,19 @@ function MyApp({ Component, pageProps }) {
 				<CssBaseline />
 				<GlobalStyles
 					styles={{
-						html: {
+						'html, body, #__next': {
 							minHeight: '100%',
+							display: 'flex',
+							flex: 1,
 						},
 						body: {
+							flex: 1,
 							minHeight: '100%',
 						},
 					}}
 				/>
 
-				<Box height="100%" display="flex" flexDirection="column">
+				<Box flex={1} display="flex" flexDirection="column">
 					<AppBar
 						position="sticky"
 						sx={(theme) => ({
@@ -53,7 +56,7 @@ function MyApp({ Component, pageProps }) {
 							</Container>
 						</Toolbar>
 					</AppBar>
-					<Container component="main" minHeight="100">
+					<Container component="main" sx={{ flex: 1 }}>
 						<Component {...pageProps} />
 					</Container>
 				</Box>
