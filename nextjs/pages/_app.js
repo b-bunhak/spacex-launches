@@ -10,6 +10,7 @@ import {
 	AppBar,
 	Toolbar,
 	Typography,
+	Container,
 } from '@mui/material';
 
 const theme = createTheme({
@@ -47,12 +48,14 @@ function MyApp({ Component, pageProps }) {
 						})}
 					>
 						<Toolbar>
-							<Typography variant="h6">SpaceX Launches</Typography>
+							<Container>
+								<Typography variant="h6">SpaceX Launches</Typography>
+							</Container>
 						</Toolbar>
 					</AppBar>
-					<Box component="main" minHeight="100">
+					<Container component="main" minHeight="100">
 						<Component {...pageProps} />
-					</Box>
+					</Container>
 				</Box>
 			</ThemeProvider>
 		</>
