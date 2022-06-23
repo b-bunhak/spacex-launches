@@ -1,19 +1,7 @@
-import LaunchCard from '../components/LaunchCard';
+import LaunchesList from '../components/LaunchesList';
 
 export default function Past({ launches }) {
-	return (
-		<main>
-			{launches.map((launch) => (
-				<LaunchCard
-					key={launch.id}
-					name={launch.name}
-					date={launch.date_utc}
-					details={launch.details}
-					sx={{ mb: 2 }}
-				/>
-			))}
-		</main>
-	);
+	return <LaunchesList launches={launches} />;
 }
 
 export async function getStaticProps() {
