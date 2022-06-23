@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import LaunchCard from '../components/LaunchCard';
 
@@ -9,30 +9,39 @@ export default function Home({ latest, next }) {
 				my="auto"
 				flex={1}
 				display="flex"
-				flexWrap="wrap"
+				flexWrap="wrap-reverse"
 				sx={{ '& > *': { m: 2, flex: '1 1 320px' } }}
 			>
-				<LaunchCard
-					name={latest.name}
-					date={latest.date_utc}
-					details={latest.details}
-					success={latest.success}
-					upcoming={latest.upcoming}
-					badgeSrc={latest.links?.patch?.small}
-					linkLabel="All past launches"
-					linkHref={'/past'}
-				/>
-
-				<LaunchCard
-					name={next.name}
-					date={next.date_utc}
-					details={next.details}
-					success={next.success}
-					upcoming={next.upcoming}
-					badgeSrc={next.links?.patch?.small}
-					linkLabel="All future launches"
-					linkHref={'/upcoming'}
-				/>
+				<Box>
+					<Typography color="primary" variant="h4" textAlign="center">
+						Last
+					</Typography>
+					<LaunchCard
+						name={latest.name}
+						date={latest.date_utc}
+						details={latest.details}
+						success={latest.success}
+						upcoming={latest.upcoming}
+						badgeSrc={latest.links?.patch?.small}
+						linkLabel="All past launches"
+						linkHref={'/past'}
+					/>
+				</Box>
+				<Box>
+					<Typography color="primary" variant="h4" textAlign="center">
+						Next
+					</Typography>
+					<LaunchCard
+						name={next.name}
+						date={next.date_utc}
+						details={next.details}
+						success={next.success}
+						upcoming={next.upcoming}
+						badgeSrc={next.links?.patch?.small}
+						linkLabel="All upcoming launches"
+						linkHref={'/upcoming'}
+					/>
+				</Box>
 			</Box>
 		</Box>
 	);

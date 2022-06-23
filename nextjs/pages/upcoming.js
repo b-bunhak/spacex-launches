@@ -1,7 +1,15 @@
+import { Typography } from '@mui/material';
 import LaunchesList from '../components/LaunchesList';
 
 export default function Upcoming({ launches }) {
-	return <LaunchesList launches={launches} />;
+	return (
+		<>
+			<Typography variant="h2" color="primary" textAlign="center" my={2}>
+				Upcoming
+			</Typography>
+			<LaunchesList launches={launches} />
+		</>
+	);
 }
 
 export async function getStaticProps() {
