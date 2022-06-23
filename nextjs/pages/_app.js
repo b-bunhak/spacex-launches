@@ -1,6 +1,16 @@
 import Head from 'next/head';
 
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import {
+	createTheme,
+	ThemeProvider,
+	CssBaseline,
+	alpha,
+	GlobalStyles,
+	Box,
+	AppBar,
+	Toolbar,
+	Typography,
+} from '@mui/material';
 
 const theme = createTheme({
 	palette: { mode: 'dark' },
@@ -15,7 +25,35 @@ function MyApp({ Component, pageProps }) {
 			</Head>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
-				<Component {...pageProps} />
+				<GlobalStyles
+					styles={{
+						html: {
+							minHeight: '100%',
+						},
+						body: {
+							minHeight: '100%',
+						},
+					}}
+				/>
+
+				<Box height="100%" display="flex" flexDirection="column">
+					<AppBar
+						position="sticky"
+						sx={(theme) => ({
+							transition: theme.transitions.create('top'),
+							zIndex: theme.zIndex.appBar,
+							backdropFilter: 'blur(20px)',
+							backgroundColor: alpha(theme.palette.background.paper, 0.65),
+						})}
+					>
+						<Toolbar>
+							<Typography variant="h6">SpaceX Launches</Typography>
+						</Toolbar>
+					</AppBar>
+					<Box component="main" minHeight="100">
+						<Component {...pageProps} />
+					</Box>
+				</Box>
 			</ThemeProvider>
 		</>
 	);
