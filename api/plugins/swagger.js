@@ -6,6 +6,7 @@ module.exports = fp(async function (fastify) {
 		swagger: {
 			info: {
 				title: 'SpaceX Launches API',
+				version: 1,
 			},
 		},
 		exposeRoute: true,
