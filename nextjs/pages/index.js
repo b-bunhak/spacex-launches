@@ -4,7 +4,13 @@ import { Box, Typography, Button } from '@mui/material';
 
 import LaunchCard from '../components/LaunchCard';
 
+import useExperiment from '../hooks/useOptimizeExperiment';
+
 export default function Home({ latest, next }) {
+	const variant = useExperiment(
+		process.env.NEXT_PUBLIC_OPTIMIZE_EXPERIMENT_ID_HOME_BUTTON_TYPE
+	);
+
 	const launches = [
 		{
 			text: 'Last',
@@ -41,7 +47,10 @@ export default function Home({ latest, next }) {
 							badgeSrc={launch.links?.patch?.small}
 						/>
 						<Link passHref href={link.href}>
-							<Button variant="outlined" sx={{ mt: 2, alignSelf: 'center' }}>
+							<Button
+								variant={variant == 1 ? 'contained' : 'outlined'}
+								sx={{ mt: 2, alignSelf: 'center' }}
+							>
 								{link.text}
 							</Button>
 						</Link>
