@@ -36,7 +36,8 @@ Api/Client architecture.
 - more tests api
 - tests frontend
 - rockets api(api)
-- rocket name launch card
-- pt-br localization
-- optimize space background performance
-- page for more information about launch
+- rocket name launch card(frontend)
+- pt-br localization(frontend)
+- optimize space background performance(frontend)
+- page for more information about launch(frontend & api)
+- add page links to appbar(frontend)
