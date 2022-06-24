@@ -1,12 +1,8 @@
-import Link from 'next/link';
-
 import {
 	Box,
 	Card,
 	CardContent,
-	CardActions,
 	Typography,
-	Button,
 	Avatar,
 	alpha,
 } from '@mui/material';
@@ -71,14 +67,6 @@ export default function LaunchCard({
 					{upcoming ? 'Upcoming' : success ? 'Successful' : 'Failed'}
 				</Typography>
 			</CardContent>
-
-			{linkHref && linkLabel && (
-				<CardActions sx={{ justifyContent: 'center' }}>
-					<Link passHref href={linkHref}>
-						<Button variant="outlined">{linkLabel}</Button>
-					</Link>
-				</CardActions>
-			)}
 		</Card>
 	);
 }

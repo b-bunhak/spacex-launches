@@ -1,4 +1,6 @@
-import { Box, Typography } from '@mui/material';
+import Link from 'next/link';
+
+import { Box, Typography, Button } from '@mui/material';
 
 import LaunchCard from '../components/LaunchCard';
 
@@ -12,7 +14,7 @@ export default function Home({ latest, next }) {
 				flexWrap="wrap-reverse"
 				sx={{ '& > *': { m: 2, flex: '1 1 320px' } }}
 			>
-				<Box>
+				<Box sx={{ textAlign: 'center' }}>
 					<Typography color="primary" variant="h4" textAlign="center">
 						Last
 					</Typography>
@@ -23,11 +25,14 @@ export default function Home({ latest, next }) {
 						success={latest.success}
 						upcoming={latest.upcoming}
 						badgeSrc={latest.links?.patch?.small}
-						linkLabel="All past launches"
-						linkHref={'/past'}
 					/>
+					<Link passHref href="/past">
+						<Button variant="outlined" sx={{ mt: 2 }}>
+							All past launches
+						</Button>
+					</Link>
 				</Box>
-				<Box>
+				<Box sx={{ textAlign: 'center' }}>
 					<Typography color="primary" variant="h4" textAlign="center">
 						Next
 					</Typography>
@@ -38,9 +43,13 @@ export default function Home({ latest, next }) {
 						success={next.success}
 						upcoming={next.upcoming}
 						badgeSrc={next.links?.patch?.small}
-						linkLabel="All upcoming launches"
-						linkHref={'/upcoming'}
 					/>
+
+					<Link passHref href="/past">
+						<Button variant="outlined" sx={{ mt: 2 }}>
+							All upcoming launches
+						</Button>
+					</Link>
 				</Box>
 			</Box>
 		</Box>
