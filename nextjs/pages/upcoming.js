@@ -14,7 +14,7 @@ export default function Upcoming({ launches }) {
 
 export async function getStaticProps() {
 	const launches = await (
-		await fetch('http://localhost:4000/launches/upcoming')
+		await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/upcoming`)
 	).json();
 
 	launches.sort((a, b) => a.date_unix - b.date_unix);

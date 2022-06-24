@@ -63,11 +63,11 @@ export default function Home({ latest, next }) {
 
 export async function getStaticProps() {
 	const latest = await (
-		await fetch('http://localhost:4000/launches/latest')
+		await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/latest`)
 	).json();
 
 	const next = await (
-		await fetch('http://localhost:4000/launches/next')
+		await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/next`)
 	).json();
 
 	return { props: { latest, next } };
