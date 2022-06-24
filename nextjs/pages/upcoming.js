@@ -19,5 +19,5 @@ export async function getStaticProps() {
 
 	launches.sort((a, b) => a.date_unix - b.date_unix);
 
-	return { props: { launches } };
+	return { props: { launches }, revalidate: 60 };
 }

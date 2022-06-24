@@ -70,5 +70,5 @@ export async function getStaticProps() {
 		await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/next`)
 	).json();
 
-	return { props: { latest, next } };
+	return { props: { latest, next }, revalidate: 60 };
 }
