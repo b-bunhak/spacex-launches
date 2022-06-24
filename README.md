@@ -1,5 +1,8 @@
 # spacex-launches
 
+App: https://spacex-launches-b-bunhak.vercel.app/
+Api: https://b-bunhak-spacex-launches.herokuapp.com
+
 ## requirements
 
 - node api using spacex api
