@@ -15,6 +15,9 @@ import {
 
 const theme = createTheme({
 	palette: { mode: 'dark' },
+	typography: {
+		fontFamily: 'Mukta',
+	},
 });
 
 function MyApp({ Component, pageProps }) {

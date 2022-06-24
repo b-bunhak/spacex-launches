@@ -9,6 +9,13 @@ export default function Document() {
 	return (
 		<Html>
 			<Head>
+				{/* Font */}
+
+				<link
+					href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;700&display=swap"
+					rel="stylesheet"
+				></link>
+
 				{/* Google Optimize */}
 				<script
 					src={`https://www.googleoptimize.com/optimize.js?id=${OPTIMIZE_CONTAINER_ID}`}
