@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
 	Box,
 	Card,
@@ -16,14 +18,22 @@ export default function LaunchCard({
 	upcoming,
 	linkHref,
 	badgeSrc,
+	sx,
 	...props
 }) {
+	const [dateLocal, setDateLocal] = useState(date);
+
+	useEffect(() => {
+		setDateLocal(new Date(date).toLocaleString());
+	}, []);
+
 	return (
 		<Card
 			{...props}
 			sx={{
 				backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.65),
 				textAlign: 'center',
+				...sx,
 			}}
 		>
 			<CardContent>
@@ -38,7 +48,7 @@ export default function LaunchCard({
 					{name}
 				</Typography>
 
-				<Typography variant="h6">{new Date(date).toLocaleString()}</Typography>
+				<Typography variant="h6">{dateLocal}</Typography>
 
 				{details && <Typography variant="h5">{details}</Typography>}
 
