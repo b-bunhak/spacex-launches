@@ -14,7 +14,7 @@ export default function Past({ launches }) {
 
 export async function getStaticProps() {
 	const launches = await (
-		await fetch('http://localhost:3000/launches/past')
+		await fetch('http://localhost:4000/launches/past')
 	).json();
 
 	launches.sort((a, b) => b.date_unix - a.date_unix);
