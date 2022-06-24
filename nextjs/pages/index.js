@@ -28,7 +28,7 @@ export default function Home({ latest, next }) {
 				sx={{ '& > *': { m: 2, flex: '1 1 320px' } }}
 			>
 				{launches.map(({ text, link, launch }) => (
-					<Box sx={{ textAlign: 'center' }}>
+					<Box display="flex" flexDirection="column">
 						<Typography color="primary" variant="h4" textAlign="center">
 							{text}
 						</Typography>
@@ -41,7 +41,7 @@ export default function Home({ latest, next }) {
 							badgeSrc={launch.links?.patch?.small}
 						/>
 						<Link passHref href={link.href}>
-							<Button variant="outlined" sx={{ mt: 2 }}>
+							<Button variant="outlined" sx={{ mt: 2, alignSelf: 'center' }}>
 								{link.text}
 							</Button>
 						</Link>
