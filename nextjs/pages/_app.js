@@ -13,6 +13,8 @@ import {
 	Container,
 } from '@mui/material';
 
+import SpaceBackground from '../components/SpaceBackground';
+
 const theme = createTheme({
 	palette: { mode: 'dark' },
 	typography: {
@@ -42,6 +44,8 @@ function MyApp({ Component, pageProps }) {
 						},
 					}}
 				/>
+
+				<SpaceBackground />
 
 				<Box flex={1} display="flex" flexDirection="column">
 					<AppBar
