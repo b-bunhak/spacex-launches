@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Required .env variables
+
+Set these environment variables or use a .env file.
+
+- `NEXT_PUBLIC_GA_ID` - Google Analytics 4 ID
+- `NEXT_PUBLIC_OPTIMIZE_ID` - Google Optimize ID
+- `NEXT_PUBLIC_OPTIMIZE_EXPERIMENT_ID_HOME_BUTTON_TYPE` - Home page button type A/B test optimize experiment id
+- `NEXT_PUBLIC_API_URL` - api url
+- `NEXT_PUBLIC_HOTJAR_HJID` - Hotjar site id
+- `NEXT_PUBLIC_HOTJAR_HJSV` - Hotjar SV
+
 ## Getting Started
 
 First, run the development server:
