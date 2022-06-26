@@ -71,6 +71,7 @@ export default function AppBar({ sx, ...props }) {
 					<SwipeableDrawer
 						anchor="top"
 						open={menuOpen}
+						onOpen={handleDrawerToggle}
 						onClose={handleDrawerToggle}
 						ModalProps={{
 							keepMounted: true,
