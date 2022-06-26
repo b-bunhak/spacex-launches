@@ -4,15 +4,12 @@ import {
 	createTheme,
 	ThemeProvider,
 	CssBaseline,
-	alpha,
 	GlobalStyles,
 	Box,
-	AppBar,
-	Toolbar,
-	Typography,
 	Container,
 } from '@mui/material';
 
+import AppBar from '../components/AppBar';
 import SpaceBackground from '../components/SpaceBackground';
 
 const theme = createTheme({
@@ -27,7 +24,7 @@ function MyApp({ Component, pageProps }) {
 		<>
 			<Head>
 				<title>SpaceX Launches</title>
-				<meta name="description" content="Future and past spacex launches." />
+				<meta name="description" content="Future and past SpaceX launches." />
 			</Head>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
@@ -48,21 +45,7 @@ function MyApp({ Component, pageProps }) {
 				<SpaceBackground />
 
 				<Box flex={1} display="flex" flexDirection="column">
-					<AppBar
-						position="sticky"
-						sx={(theme) => ({
-							transition: theme.transitions.create('top'),
-							zIndex: theme.zIndex.appBar,
-							backdropFilter: 'blur(20px)',
-							backgroundColor: alpha(theme.palette.background.paper, 0.65),
-						})}
-					>
-						<Toolbar>
-							<Container>
-								<Typography variant="h6">SpaceX Launches</Typography>
-							</Container>
-						</Toolbar>
-					</AppBar>
+					<AppBar />
 					<Container component="main" sx={{ flex: 1 }}>
 						<Component {...pageProps} />
 					</Container>
