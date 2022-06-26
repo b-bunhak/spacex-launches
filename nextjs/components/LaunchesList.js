@@ -24,6 +24,7 @@ export default function LaunchesList({ launches }) {
 						success={launch.success}
 						upcoming={launch.upcoming}
 						badgeSrc={launch.links?.patch?.small}
+						rocket={launch.rocket}
 					/>
 				</li>
 			))}

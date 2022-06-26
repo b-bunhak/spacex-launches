@@ -18,6 +18,7 @@ export default function LaunchCard({
 	upcoming,
 	linkHref,
 	badgeSrc,
+	rocket,
 	sx,
 	...props
 }) {
@@ -47,6 +48,8 @@ export default function LaunchCard({
 					)}
 					{name}
 				</Typography>
+
+				{rocket && <Typography variant="h6">Rocket: {rocket}</Typography>}
 
 				<Typography variant="h6">{dateLocal}</Typography>
 
