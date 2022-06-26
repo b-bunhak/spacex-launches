@@ -252,13 +252,10 @@ const rocketReturnProperties = {
 	description: {
 		type: 'string',
 	},
-	rocket_id: {
+	name: {
 		type: 'string',
 	},
-	rocket_name: {
-		type: 'string',
-	},
-	rocket_type: {
+	type: {
 		type: 'string',
 	},
 };
