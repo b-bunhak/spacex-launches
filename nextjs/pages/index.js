@@ -6,6 +6,8 @@ import LaunchCard from '../components/LaunchCard';
 
 import useExperiment from '../hooks/useOptimizeExperiment';
 
+import { pick } from 'lodash-es';
+
 export default function Home({ latest, next }) {
 	const variant = useExperiment(
 		process.env.NEXT_PUBLIC_OPTIMIZE_EXPERIMENT_ID_HOME_BUTTON_TYPE
@@ -62,13 +64,28 @@ export default function Home({ latest, next }) {
 }
 
 export async function getStaticProps() {
-	const latest = await (
-		await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/latest`)
-	).json();
+	const launchProperties = [
+		'name',
+		'date_utc',
+		'details',
+		'success',
+		'upcoming',
+		'links.patch',
+	];
 
-	const next = await (
-		await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/next`)
-	).json();
+	const latest = pick(
+		await (
+			await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/latest`)
+		).json(),
+		launchProperties
+	);
+
+	const next = pick(
+		await (
+			await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/next`)
+		).json(),
+		launchProperties
+	);
 
 	return { props: { latest, next }, revalidate: 60 };
 }
