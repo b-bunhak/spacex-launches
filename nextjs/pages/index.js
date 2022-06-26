@@ -8,6 +8,8 @@ import useExperiment from '../hooks/useOptimizeExperiment';
 
 import { pick } from 'lodash-es';
 
+import fetchLaunchesRocketName from '../util/fetchLaunchesRocketName';
+
 export default function Home({ latest, next }) {
 	const variant = useExperiment(
 		process.env.NEXT_PUBLIC_OPTIMIZE_EXPERIMENT_ID_HOME_BUTTON_TYPE
@@ -47,6 +49,7 @@ export default function Home({ latest, next }) {
 							success={launch.success}
 							upcoming={launch.upcoming}
 							badgeSrc={launch.links?.patch?.small}
+							rocket={launch.rocket}
 						/>
 						<Link passHref href={link.href}>
 							<Button
@@ -65,27 +68,31 @@ export default function Home({ latest, next }) {
 
 export async function getStaticProps() {
 	const launchProperties = [
+		'id',
 		'name',
 		'date_utc',
 		'details',
 		'success',
 		'upcoming',
 		'links.patch',
+		'rocket',
 	];
 
-	const latest = pick(
+	let latest = pick(
 		await (
 			await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/latest`)
 		).json(),
 		launchProperties
 	);
 
-	const next = pick(
+	let next = pick(
 		await (
 			await fetch(`${process.env.NEXT_PUBLIC_API_URL}/launches/next`)
 		).json(),
 		launchProperties
 	);
+
+	[latest, next] = await fetchLaunchesRocketName([latest, next]);
 
 	return { props: { latest, next }, revalidate: 60 };
 }
