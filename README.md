@@ -34,7 +34,8 @@ Api/Client architecture.
 ## To-Do
 
 - more tests api
-- tests frontend
+- more tests frontend
+- pagination(frontend & api)
 - rocket name launch card(frontend)
 - pt-br localization(frontend)
 - optimize space background performance(frontend)
