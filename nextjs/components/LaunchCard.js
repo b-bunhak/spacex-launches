@@ -30,6 +30,7 @@ export default function LaunchCard({
 
 	return (
 		<Card
+			data-testid="launch-card"
 			{...props}
 			sx={{
 				backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.65),
@@ -49,13 +50,24 @@ export default function LaunchCard({
 					{name}
 				</Typography>
 
-				{rocket && <Typography variant="h6">Rocket: {rocket}</Typography>}
+				{rocket && (
+					<Typography component="div" variant="h6">
+						Rocket: {rocket}
+					</Typography>
+				)}
 
-				<Typography variant="h6">{dateLocal}</Typography>
+				<Typography component="div" variant="h6">
+					{dateLocal}
+				</Typography>
 
-				{details && <Typography variant="h5">{details}</Typography>}
+				{details && (
+					<Typography component="div" variant="h5">
+						{details}
+					</Typography>
+				)}
 
 				<Typography
+					component="div"
 					variant="h6"
 					sx={{
 						display: 'flex',
