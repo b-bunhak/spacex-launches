@@ -2,10 +2,10 @@ import { Box } from '@mui/material';
 
 import LaunchCard from '../components/LaunchCard';
 
-export default function LaunchesList({ launches }) {
+export default function LaunchesList({ launches, sx, ...props }) {
 	return (
 		<Box
-			component="ul"
+			component="ol"
 			sx={{
 				listStyle: 'none',
 				p: 0,
@@ -13,7 +13,9 @@ export default function LaunchesList({ launches }) {
 				'& > li': {
 					m: 2,
 				},
+				...sx,
 			}}
+			{...props}
 		>
 			{launches.map((launch) => (
 				<li key={launch.id}>
