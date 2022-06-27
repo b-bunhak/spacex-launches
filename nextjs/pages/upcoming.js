@@ -8,10 +8,16 @@ import fetchLaunchesRocketName from '../util/fetchLaunchesRocketName';
 export default function Upcoming({ launches }) {
 	return (
 		<>
-			<Typography variant="h2" color="primary" textAlign="center" my={2}>
+			<Typography
+				component="h1"
+				variant="h2"
+				color="primary"
+				textAlign="center"
+				my={2}
+			>
 				Upcoming
 			</Typography>
-			<LaunchesList launches={launches} />
+			<LaunchesList aria-label="Upcoming Launches" launches={launches} />
 		</>
 	);
 }
